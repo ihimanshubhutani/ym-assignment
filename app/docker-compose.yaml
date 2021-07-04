@@ -1,5 +1,6 @@
-version: "3"
+version: "3.7"
 services:
+  
   app:
     env_file: 
       - .env.local
@@ -12,15 +13,17 @@ services:
       - redis
     networks:
       - backend
+
   redis:
     image: bitnami/redis:latest
-    # As it will be used only at local developments
+    # As it will be used only at local development testing
+    user: root
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
     networks:
       - backend
     volumes:
-      - ./redis-vol:/data
+      - ./redis-vol:/bitnami
 
 networks:
   backend:

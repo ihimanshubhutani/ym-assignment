@@ -30,7 +30,7 @@ export const getOriginalUrl = async (
  * @returns   : Response {code}, Shortened URL code
  */
 
-export const getShortenedUrl = async (
+export const getShortenedUrlCode = async (
   req: Request,
   res: Response,
 ): Promise<Response> => {

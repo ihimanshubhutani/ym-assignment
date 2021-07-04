@@ -1,17 +1,24 @@
-FROM node:12.14.1-slim
 
-ARG PORT=3000
+FROM node:12.14.1-slim as app-builder
 
-WORKDIR /usr/src/app
+WORKDIR /usr/src/builder
 
-COPY --chown=node:node . /usr/src/app
+COPY package*.json yarn.lock ./
 
-RUN yarn install
+RUN yarn --pure-lockfile && yarn cache clean
+
+COPY . .
 
 RUN yarn build
 
-USER node
+FROM node:12.14.1-slim as app-container
 
-EXPOSE $PORT
+WORKDIR /usr/src/app
+
+COPY --from=app-builder /usr/src/builder/package.json ./package.json
+COPY --from=app-builder /usr/src/builder/lib ./lib
+COPY --from=app-builder /usr/src/builder/node_modules ./node_modules
+
+ENV NODE_ENV="production"
 
 CMD [ "yarn", "start" ]

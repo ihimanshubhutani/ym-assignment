@@ -1,0 +1,34 @@
+{
+  "name": "ym-assignment",
+  "version": "1.0.0",
+  "description": "URL Shortner",
+  "main": "lib/index.js",
+  "license": "MIT",
+  "engines": {
+    "node": "^12.14.1",
+    "yarn": ">=1.21.0 < 1.23.5"
+  },
+  "scripts": {
+    "build": "rm -rf lib && tsc",
+    "dev": "concurrently \"tsc --watch\" \"nodemon --watch ./lib/ --exec NODE_ENV=development node lib/index.js\"",
+    "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
+    "start": "node lib/index.js",
+    "test": "jest --verbose"
+  },
+  "dependencies": {
+    "express": "4.17.1"
+  },
+  "devDependencies": {
+    "@types/cors": "2.8.10",
+    "@types/express": "4.17.12",
+    "@typescript-eslint/eslint-plugin": "4.28.1",
+    "@typescript-eslint/parser": "4.28.1",
+    "concurrently": "5.3.0",
+    "eslint": "7.30.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "3.4.0",
+    "nodemon": "2.0.9",
+    "prettier": "2.3.2",
+    "typescript": "3.9.6"
+  }
+}

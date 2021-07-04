@@ -12,10 +12,11 @@
     "build": "rm -rf lib && tsc",
     "dev": "concurrently \"tsc --watch\" \"nodemon --watch ./lib/ --exec NODE_ENV=development node lib/index.js\"",
     "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
-    "start": "node lib/index.js",
+    "start": "node ./lib/index.js",
     "test": "jest --verbose"
   },
   "dependencies": {
+    "dotenv": "10.0.0",
     "express": "4.17.1",
     "joi": "17.4.0",
     "redis": "3.1.2",

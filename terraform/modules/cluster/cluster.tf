@@ -25,7 +25,7 @@ module "eks" {
   node_groups = [
     {
       subnet           = [var.private_subnet-1_id]
-      instance_types   = ["t2.micro"]
+      instance_types   = ["t2.large"]
       max_capacity     = 2
       min_capacity     = 1
       desired_capacity = 1

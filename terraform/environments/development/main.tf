@@ -6,6 +6,9 @@ module "vpc_network" {
   availability_zone-2 = var.availability_zone-2
   application         = var.application
 }
+module "ecr" {
+  source = "../../modules/ecr"
+}
 
 module "cluster" {
   source              = "../../modules/cluster"

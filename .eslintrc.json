@@ -1,0 +1,51 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "plugins": ["@typescript-eslint"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "ignorePatterns": ["*.spec.ts"],
+  "rules": {
+    "default-case": ["off"],
+    "no-fallthrough": ["off"],
+    "no-constant-condition": ["off"],
+    "array-callback-return": ["off"],
+    "require-atomic-updates": ["off"],
+    "@typescript-eslint/no-this-alias": [
+      "error",
+      { "allowDestructuring": true }
+    ],
+    "@typescript-eslint/no-useless-constructor": "error",
+    "@typescript-eslint/restrict-plus-operands": ["error"],
+    "@typescript-eslint/no-use-before-define": [
+      "error",
+      {
+        "functions": false,
+        "classes": false,
+        "variables": true,
+        "enums": true,
+        "typedefs": true
+      }
+    ],
+    "@typescript-eslint/explicit-member-accessibility": "off",
+    "@typescript-eslint/prefer-string-starts-ends-with": "error",
+    "@typescript-eslint/require-array-sort-compare": "off",
+    "@typescript-eslint/camelcase": ["off"],
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "ignoreRestSiblings": true,
+        "varsIgnorePattern": "^_",
+        "argsIgnorePattern": "^_",
+        "caughtErrors": "all"
+      }
+    ]
+  }
+}

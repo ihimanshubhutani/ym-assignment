@@ -1,7 +1,7 @@
 import { Request, Response } from "express"
 import {
   getShortendCodeUrl,
-  generateShortenedCode,
+  generateShortenedUrl,
 } from "../helper/urlFunctions"
 
 /**
@@ -18,7 +18,7 @@ export const getOriginalUrl = async (
   const { shortnedUrlCode } = req.params
   const orignalUrl = await getShortendCodeUrl(shortnedUrlCode)
   if (!orignalUrl) {
-    return res.status(404).send({ msg: "Invalid Code" })
+    return res.status(404).send({ msg: "Invalid Shortned URL" })
   }
   return res.redirect(orignalUrl)
 }
@@ -27,15 +27,16 @@ export const getOriginalUrl = async (
  * Converts Orignal URL to Shortened URL
  * @param req : Express Request Object
  * @param res : Express Response Object
- * @returns   : Response {code}, Shortened URL code
+ * @returns   : Response {shortnedUrl}, Shortened URL
  */
 
-export const getShortenedUrlCode = async (
+export const getShortenedUrl = async (
   req: Request,
   res: Response,
 ): Promise<Response> => {
   const { url } = req.body
 
-  const shortnedUrlCode = await generateShortenedCode(url)
-  return res.json({ code: shortnedUrlCode })
+  const { host } = req.headers
+  const shortnedUrl = await generateShortenedUrl(url, host)
+  return res.json({ shortned_url: shortnedUrl })
 }

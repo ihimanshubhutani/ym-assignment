@@ -1,5 +1,5 @@
 import { Chance } from "chance"
-import { generateShortenedCode, getShortendCodeUrl } from "./urlFunctions"
+import { generateShortenedUrl, getShortendCodeUrl } from "./urlFunctions"
 
 const chance = new Chance()
 const url = chance.url()
@@ -7,9 +7,8 @@ let code = ""
 
 describe("Testing helper functions", () => {
   it("Testing generateShortenedCode function", async () => {
-    code = await generateShortenedCode(url)
+    code = await generateShortenedUrl(url, "localhost:3000")
     expect(typeof code).toBe("string")
-    expect(code.length).toBeLessThan(url.length)
   })
 
   it("Testing getShortendCodeUrl function", async () => {

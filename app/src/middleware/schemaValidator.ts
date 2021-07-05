@@ -16,7 +16,9 @@ export const urlValidator = (
 ): Response | void => {
   const schema = Joi.object({
     url: Joi.string()
-      .regex(/^https?:\/\/([\da-z\\.-]+)\.([a-z\\.]{2,6})([\\/\w \\.-]*)*\/?$/)
+      .regex(
+        /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\\.-]+)+[\w\-\\._~:/?#[\]@!\\$&'\\(\\)\\*\\+,;=.]+$/,
+      )
       .required()
       .messages({
         "string.pattern.base": `"url" field contains invalid url`,

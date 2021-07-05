@@ -7,22 +7,30 @@
 
 ## Setup
 
+- Clone Repo
+
+```sh
+      $  git clone path/to/repo
+
+      $  cd terraform
+```
+
 - Change directory to environments/{ENVIRONMENT}, currently development
 
 ```sh
-  cd environments/development
+     $ cd environments/development
 ```
 
 - Initialize a working directory
 
 ```sh
-  terraform init
+     $ terraform init
 ```
 
 - Provision Infrastructure using following command and approve plan using `yes` on prompt
 
 ```sh
-  terraform apply
+     $ terraform apply
 ```
 
 ## Outputs

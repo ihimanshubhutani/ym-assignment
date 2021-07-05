@@ -11,15 +11,20 @@ import {
  * @returns   : Response, redirects user to URL
  */
 
-export const getOriginalUrl = async (
+export const redirectToOrignalUrl = async (
   req: Request,
   res: Response,
 ): Promise<void | Response> => {
-  const { shortnedUrlCode } = req.params
-  const orignalUrl = await getShortendCodeUrl(shortnedUrlCode)
+  const { shortenedUrlCode } = req.params
+  let orignalUrl = await getShortendCodeUrl(shortenedUrlCode)
   if (!orignalUrl) {
     return res.status(404).send({ msg: "Invalid Shortned URL" })
   }
+
+  if (!/^(f|ht)tps?:\/\//i.test(orignalUrl)) {
+    orignalUrl = `http://${orignalUrl}`
+  }
+
   return res.redirect(orignalUrl)
 }
 

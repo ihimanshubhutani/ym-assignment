@@ -47,3 +47,34 @@ Create .env file and add the following environment variables in it.
 ```sh
   yarn start
 ```
+
+### REST APIs
+
+- Generate Shortned URL
+
+### Request
+
+`GET /:shornenedUrlCode`
+
+```sh
+
+
+
+
+
+```
+
+```sh
+
+GET /users/defunkt
+
+$ curl https://api.github.com/users/defunkt
+
+> {
+>   "login": "defunkt",
+>   "id": 2,
+>   "url": "https://api.github.com/users/defunkt",
+>   "html_url": "https://github.com/defunkt",
+>   ...
+> }
+```

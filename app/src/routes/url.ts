@@ -1,10 +1,10 @@
-import { getShortenedUrl, getOriginalUrl } from "../controller/url"
+import { getShortenedUrl, redirectToOrignalUrl } from "../controller/url"
 import { Router } from "express"
 import { urlValidator } from "../middleware/schemaValidator"
 
 const urlRoutes = Router()
 
 urlRoutes.post("/", urlValidator, getShortenedUrl)
-urlRoutes.get("/:shortnedUrlCode", getOriginalUrl)
+urlRoutes.get("/:shortenedUrlCode", redirectToOrignalUrl)
 
 export default urlRoutes

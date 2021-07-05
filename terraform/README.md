@@ -5,22 +5,30 @@
 - terraform >=0.14
 - AWS credentials ( ACCESS_ID and SECRET_KEY ) are exported
 
-## Setup 
+## Setup
 
 - Change directory to environments/{ENVIRONMENT}, currently development
 
-```
+```sh
   cd environments/development
 ```
 
 - Initialize a working directory
 
-```
+```sh
   terraform init
 ```
 
 - Provision Infrastructure using following command and approve plan using `yes` on prompt
 
+```sh
+  terraform apply
 ```
-  terraform apply 
-```
+
+## Outputs
+
+After provisioning infrastructure, it will return following outputs, which will be useful for setting up cluster at local and pushing docker image to ECR
+
+- _CLUSTER_NAME_ : Name of the Kubernetes Cluster, that is being deployed
+
+- _APP_ECR_URL_: Repository URL for AWS ECR

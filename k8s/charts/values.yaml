@@ -1,0 +1,23 @@
+imagePullPolicy: Always
+image:
+  name: 965699425769.dkr.ecr.us-east-1.amazonaws.com/ym-app
+  tag: latest
+resources:
+  requests:
+    cpu: 200m
+    memory: 300Mi
+  limits:
+    cpu: 700m
+    memory: 700Mi
+
+service:
+  name: ym-app-service
+  port: 3000
+
+horizontalPodAutoScalling:  
+  minReplicas: 1
+  maxReplicas:  3
+  targetCPUUtilizationPercentage: 60
+
+secretName: ym-app-secrets
+

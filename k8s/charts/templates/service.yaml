@@ -1,0 +1,9 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: {{ .Values.service.name }}
+spec:
+  selector: 
+    {{- include "app.selectorLabels" . | nindent 6 }}
+  ports:
+    - port: {{ .Values.service.port }}

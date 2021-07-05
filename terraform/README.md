@@ -32,3 +32,21 @@ After provisioning infrastructure, it will return following outputs, which will 
 - _CLUSTER_NAME_ : Name of the Kubernetes Cluster, that is being deployed
 
 - _APP_ECR_URL_: Repository URL for AWS ECR
+
+## Components
+
+This Terraform code will setup following components on AWS Cloud
+
+1. VPC
+
+   - Public Subnet ( for Kubernetes API )
+   - Private Subnet ( for Worker nodes )
+   - Internet Gateway
+   - NAT Gateway
+   - NAT Gateway and Elastic IP
+   - Route Tables
+   - Route Tables Associations
+
+2. EKS Cluster
+
+3. ECR

@@ -13,14 +13,15 @@ provider "kubernetes" {
 }
 
 module "eks" {
-  source                          = "terraform-aws-modules/eks/aws"
-  version                         = "17.1.0"
-  cluster_name                    = "cl1-${var.environment}-${var.application}"
-  cluster_version                 = "1.17"
-  subnets                         = [var.public_subnet-1_id, var.private_subnet-1_id]
-  vpc_id                          = var.vpc_id
-  cluster_endpoint_private_access = true
-  cluster_endpoint_public_access  = true
+  source                               = "terraform-aws-modules/eks/aws"
+  version                              = "17.1.0"
+  cluster_name                         = "cl1-${var.environment}-${var.application}"
+  cluster_version                      = "1.17"
+  subnets                              = [var.public_subnet-1_id, var.private_subnet-1_id]
+  vpc_id                               = var.vpc_id
+  cluster_endpoint_private_access      = true
+  cluster_endpoint_public_access       = true
+  cluster_endpoint_public_access_cidrs = ["59.95.154.209/32"]
 
   node_groups = [
     {

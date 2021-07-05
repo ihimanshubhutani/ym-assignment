@@ -36,6 +36,12 @@ Create .env file and add the following environment variables in it.
   yarn build
 ```
 
+### Test
+
+```sh
+  yarn test
+```
+
 - ### Start Development Server
 
 ```sh
@@ -86,4 +92,10 @@ curl -X POST \
 
 ```sh
   Found. Redirecting to https://www.google.com
+```
+
+### Run locally using docker-compose
+
+```
+  docker-compose up
 ```

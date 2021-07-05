@@ -54,27 +54,36 @@ Create .env file and add the following environment variables in it.
 
 ### Request
 
-`GET /:shornenedUrlCode`
+`POST /`
 
 ```sh
-
-
-
-
-
+curl -X POST \
+  http://localhost:3000/ \
+  -H 'content-type: application/json' \
+  -d '{
+"url" : "https://www.google.com"
+}'
 ```
 
+### Response
+
 ```sh
+ { "shortned_url":"http://localhost:3000/50rTT_h3w" }
+```
 
-GET /users/defunkt
+- Get Orignal URL
 
-$ curl https://api.github.com/users/defunkt
+### Request
 
-> {
->   "login": "defunkt",
->   "id": 2,
->   "url": "https://api.github.com/users/defunkt",
->   "html_url": "https://github.com/defunkt",
->   ...
-> }
+`GET /:shortenedUrlCode`
+
+```sh
+  curl -X GET \
+  http://localhost:3000/50rTT_h3w
+```
+
+### Response
+
+```sh
+  Found. Redirecting to https://www.google.com
 ```

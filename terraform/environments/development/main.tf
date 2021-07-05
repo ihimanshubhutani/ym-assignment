@@ -1,4 +1,4 @@
-module "vpc_network" {
+module "vpc" {
   source              = "../../modules/vpc"
   environment         = var.environment
   region              = var.region
@@ -13,8 +13,8 @@ module "ecr" {
 module "cluster" {
   source              = "../../modules/cluster"
   environment         = var.environment
-  private_subnet-1_id = module.vpc_network.private_subnet-1_id
-  public_subnet-1_id  = module.vpc_network.public_subnet-1_id
-  vpc_id              = module.vpc_network.vpc_id
+  private_subnet-1_id = module.vpc.private_subnet-1_id
+  public_subnet-1_id  = module.vpc.public_subnet-1_id
+  vpc_id              = module.vpc.vpc_id
   application         = var.application
 }

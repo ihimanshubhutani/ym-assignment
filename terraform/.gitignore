@@ -4,4 +4,4 @@
 kubeconfig*
 
 # Just for this assignment, so that it can be tried on any new aws account.
-terraform.tfstate
+terraform.tfstate*

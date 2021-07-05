@@ -2,7 +2,8 @@
 
 ## Prerequisites
 
-- terraform >=0.14
+- [terraform](https://www.terraform.io/downloads.html) >=0.14
+- [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
 - AWS credentials ( ACCESS_ID and SECRET_KEY ) are exported
 
 ## Setup
